@@ -5,7 +5,7 @@ import './global.css'
 export function App() {
    return (
    <div  className='flex justify-center items-center h-screen'>
-      <Button> Enviar </Button> 
+      <Button>Enviar</Button> 
    </div>
 
 
