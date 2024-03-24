@@ -6,16 +6,16 @@ import {useForm} from 'react-hook-form'
 import {z} from 'zod'
 import { toast } from 'sonner'
 
-const signInForm = z.object({
+const signUpForm = z.object({
     email:z.string().email(),
 })
 
-type SignInForm = z.infer<typeof signInForm>
+type SignUpForm = z.infer<typeof signUpForm>
 
 export function SignIn(){
-    const {register, handleSubmit, formState:{isSubmitting}} = useForm<SignInForm>()
+    const {register, handleSubmit, formState:{isSubmitting}} = useForm<SignUpForm>()
 
-   async function handleSignIn(data:SignInForm) {
+   async function handleSignIn(data:SignUpForm) {
       try{
         
 
