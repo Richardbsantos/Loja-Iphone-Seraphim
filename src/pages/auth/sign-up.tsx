@@ -12,7 +12,7 @@ const signUpForm = z.object({
 
 type SignUpForm = z.infer<typeof signUpForm>
 
-export function SignIn(){
+export function SignUp(){
     const {register, handleSubmit, formState:{isSubmitting}} = useForm<SignUpForm>()
 
    async function handleSignIn(data:SignUpForm) {
@@ -33,15 +33,15 @@ export function SignIn(){
 
     return (
     <>
-    <Helmet title="Login"/>    
+    <Helmet title="Cadastro"/>    
     <div className="p-8">
       <div className=" w-[360px] flex-col justify-center fap-6">
         <div className="flex flex-col gap-2 text-center ">
             <h1 className=" text-2xl font-semibold tracking-tight">
-                Acessar Painel
+                Comece já!
             </h1>
             <p className="text-sm text-muted-foreground ">
-                Acompanhe suas vendas pelo Painel Administrativo!
+                Comece Já!
             </p>
 
         </div>
@@ -53,7 +53,7 @@ export function SignIn(){
                 </div>
 
             <Button disabled={isSubmitting} className="w-full" type="submit">
-                Acessar Painel
+                Finalizar Cadastro 
             </Button>
 
         </form>    
