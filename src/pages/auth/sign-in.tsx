@@ -12,7 +12,7 @@ const singnInForm = z.object({
 type SingnInForm = z.infer<typeof singnInForm>
 
 export function SignIn(){
-    const {register, handleSubmit} = useForm<SingnInForm>()
+    const {register, handleSubmit, formState:{isSubmitting}} = useForm<SingnInForm>()
 
    async function handleSignIn(date:SingnInForm) {
       console.log(date)
@@ -41,7 +41,9 @@ export function SignIn(){
                 <Input type="email" id="email" placeholder="Email" {...register('email')} />
                 </div>
 
-            <Button className="w-full" type="submit">Acessar Painel</Button>
+            <Button disabled={isSubmitting} className="w-full" type="submit">
+                Acessar Painel
+            </Button>
 
         </form>    
       </div>
