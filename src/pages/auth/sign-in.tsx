@@ -4,6 +4,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import {useForm} from 'react-hook-form'
 import {z} from 'zod'
+import { toast } from 'sonner'
 
 const singnInForm = z.object({
     email:z.string().email(),
@@ -18,6 +19,8 @@ export function SignIn(){
       console.log(date)
 
     await new Promise(resolve => setTimeout(resolve, 2008))
+    toast.success('Enviamos um email de autenticação para seu email.')
+
    }
 
     return (
