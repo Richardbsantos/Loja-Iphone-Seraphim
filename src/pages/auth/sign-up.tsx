@@ -38,9 +38,11 @@ export function SignUp(){
     <>
     <Helmet title="Cadastro"/>    
     <div className="p-8">
-        <Link to="/sign-up">
-
-        </Link>
+    <Button variant= "ghost" asChild className="absolute right-8 top-8">
+         <Link to="/sign-in">
+              Fazer Login 
+         </Link>
+         </Button>
       <div className=" w-[360px] flex-col justify-center fap-6">
         <div className="flex flex-col gap-2 text-center ">
             <h1 className=" text-2xl font-semibold tracking-tight">
