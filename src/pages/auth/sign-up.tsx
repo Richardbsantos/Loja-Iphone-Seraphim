@@ -1,10 +1,13 @@
 import {Helmet} from 'react-helmet-async'
+import {useForm} from 'react-hook-form'
+import { toast } from 'sonner'
+import {Link} from 'react-router-dom'
+import {z} from 'zod'
+
+
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import {useForm} from 'react-hook-form'
-import {z} from 'zod'
-import { toast } from 'sonner'
 
 const signUpForm = z.object({
     email:z.string().email(),
@@ -35,13 +38,16 @@ export function SignUp(){
     <>
     <Helmet title="Cadastro"/>    
     <div className="p-8">
+        <Link to="/sign-up">
+
+        </Link>
       <div className=" w-[360px] flex-col justify-center fap-6">
         <div className="flex flex-col gap-2 text-center ">
             <h1 className=" text-2xl font-semibold tracking-tight">
                 Comece já!
             </h1>
             <p className="text-sm text-muted-foreground ">
-                Comece Já!
+                Acompanhe suas vendas!
             </p>
 
         </div>
