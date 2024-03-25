@@ -1,7 +1,7 @@
 import {Helmet} from 'react-helmet-async'
 import {useForm} from 'react-hook-form'
 import { toast } from 'sonner'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import {z} from 'zod'
 
 
@@ -18,7 +18,12 @@ const signUpForm = z.object({
 type SignUpForm = z.infer<typeof signUpForm>
 
 export function SignUp(){
-    const {register, handleSubmit, formState:{isSubmitting}} = useForm<SignUpForm>()
+   const navigate = useNavigate() 
+
+    const {register,
+           handleSubmit,
+           formState:{isSubmitting},
+          } = useForm<SignUpForm>()
 
    async function handleSignUp(data:SignUpForm) {
       try{
@@ -27,8 +32,8 @@ export function SignUp(){
         await new Promise(resolve => setTimeout(resolve, 2008))
         toast.success('Usuario Cadastrado com Sucesso!',{
             action:{
-                label:'Reenviar',
-                onClick:() => handleSignUp(data),
+                label:'Login',
+                onClick:() => navigate('/sign-in'),
             }
         })
       } catch {
