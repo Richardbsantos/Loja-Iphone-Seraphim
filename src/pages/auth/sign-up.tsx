@@ -10,6 +10,8 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 
 const signUpForm = z.object({
+    name:z.string(),
+    phone:z.string(),
     email:z.string().email(),
 })
 
@@ -18,19 +20,19 @@ type SignUpForm = z.infer<typeof signUpForm>
 export function SignUp(){
     const {register, handleSubmit, formState:{isSubmitting}} = useForm<SignUpForm>()
 
-   async function handleSignIn(data:SignUpForm) {
+   async function handleSignUp(data:SignUpForm) {
       try{
-        
+        console.log(data)
 
         await new Promise(resolve => setTimeout(resolve, 2008))
-        toast.success('Enviamos um email de autenticação para seu email.',{
+        toast.success('Usuario Cadastrado com Sucesso!',{
             action:{
                 label:'Reenviar',
-                onClick:() => handleSignIn(data),
+                onClick:() => handleSignUp(data),
             }
         })
       } catch {
-        toast.error('Credenciais inválidas.')
+        toast.error('Erro ao cadastra Usuario.')
       }
    }
 
@@ -54,16 +56,32 @@ export function SignUp(){
 
         </div>
         
-        <form onSubmit={handleSubmit(handleSignIn)} className="space-y-4">
+        <form onSubmit={handleSubmit(handleSignUp)} className="space-y-4">
+            <div className="space-y-2">
+                <Label htmlFor="name">Seu Nome </Label>
+                <Input type="text" id="name"  {...register('name')} />
+            </div>
+             
             <div className="space-y-2">
                 <Label htmlFor="email">Seu Email </Label>
-                <Input type="email" id="email" placeholder="Email" {...register('email')} />
-                </div>
+                <Input type="email" id="email"  {...register('email')} />
+            </div>
+
+            <div className="space-y-2">
+                <Label htmlFor="phone">Seu celular </Label>
+                <Input type="tel" id="phone"  {...register('phone')} />
+            </div>
+
 
             <Button disabled={isSubmitting} className="w-full" type="submit">
                 Finalizar Cadastro 
             </Button>
-
+             <p className="px-6 text-center text-sm leading-relaxed text-muted-foreground">
+                Ao continuar, você concorda com os nossos{' '} 
+                <a className="underline underline-offset-4" href=''>termos de serviços</a> {' '}
+                 e {' '} 
+                <a className="underline underline-offset-4" href=''>privacidade.</a>
+             </p>
         </form>    
       </div>
     </div>
