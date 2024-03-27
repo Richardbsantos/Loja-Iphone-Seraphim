@@ -1,7 +1,7 @@
 import { Home, Smartphone} from "lucide-react";
-import {Link } from 'react-router-dom'
 
 import { Separator } from "@radix-ui/react-separator";
+import { NavLink } from "./nav-link";
 
 export function Header(){
     return(
@@ -12,14 +12,14 @@ export function Header(){
             <Separator orientation="vertical" />
 
             <nav className="flex items-center space-x-4 lg:space-x-6">
-                <Link to="/">
+                <NavLink to="/">
                       <Home className="h-4  w-4"/>
                       Inicio
-                </Link>
-                <Link to="/orders">
+                </NavLink>
+                <NavLink to="/orders">
                       <Smartphone className="h-4  w-4"/>
                       Pedidos
-                </Link>
+                </NavLink> 
             </nav>
            </div>
         </div>
