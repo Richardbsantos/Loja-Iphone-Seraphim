@@ -11,7 +11,6 @@ export function App() {
         <Helmet  titleTemplate="%s | Seraphim.shop"/>
         <Toaster richColors />
         <RouterProvider router={router}/>
-        
     </HelmetProvider>
   )
 }
