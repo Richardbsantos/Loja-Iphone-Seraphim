@@ -18,7 +18,7 @@ export function Header(){
                 </NavLink>
                 <NavLink to="/orders">
                       <Smartphone className="h-4  w-4"/>
-                      Pedidos
+                      Pedidoss
                 </NavLink> 
             </nav>
            </div>
